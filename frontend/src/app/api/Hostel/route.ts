@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Successfully Registered', data: response.data });
 
   } catch (error) {
-    // Handle errors from the external API
+
     const output = (error as any).response?.data;
 
     if (output) {

@@ -106,14 +106,41 @@ export default function Component() {
     });
   };
 
+
+
+  //Old method
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(`${BASEURL}api/user/`, formData);
+  //     console.log(response);
+  //     toast({
+  //       title: "Successfully Registered",
+  //       description: "You have Successfully Registered for College",});
+
+  //   } catch (error)
+
+  //   {
+  //     const output = (error as any).response?.data;   
+  //     toast({
+  //       title: `${output[Object.keys(output)[0]][0]}`, 
+  //       description: `${console.log(Object.keys(output)[0])}`,
+  //     })
+  //   }
+  // };
+
+
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${BASEURL}api/user/`, formData);
+      const response = await axios.post("/api/Register", formData);
       console.log(response);
       toast({
         title: "Successfully Registered",
-        description: "You have Successfully Registered for College",});
+        description: "You have successfully registered for College",});
 
     } catch (error)
 

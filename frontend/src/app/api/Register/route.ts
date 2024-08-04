@@ -1,9 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
 
+export async function POST(req: NextRequest) {
+  try {
+    const formData = await req.json();
+    
+    if (!formData) {
+      return NextResponse.json({ error: 'No data provided' }, { status: 400 });
+    }
+    console.log(formData);
 
-export async function POST(req: NextRequest, res: NextResponse) {
+    const postdata  = `${process.env.BASE_URL}api/user/`;
+    console.log(postdata);
 
-    const env= process.env.BASE_URL;
-    console.log(env);
-    return NextResponse.json({env:env});
+    const response = await axios.post(postdata, formData);
+
+    return NextResponse.json({ message: 'Successfully Registered', data: response.data });
+
+  } catch (error) {
+
+    const output = (error as any).response?.data;
+
+    if (output) {
+      return NextResponse.json({ 
+        error: `${output[Object.keys(output)[0]][0]}`, 
+      }, { status: 400 });
+    }
+
+    return NextResponse.json({ error: 'An error occurred' }, { status: 500 });
+  }
 }
