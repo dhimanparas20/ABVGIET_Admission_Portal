@@ -10,7 +10,10 @@ export async function POST(req: NextRequest) {
     }
     console.log(formData);
 
-    const response = await axios.post(`${process.env.BASEURL}api/hostel/`, formData);
+    const postdata  = `${process.env.BASE_URL}api/hostel/`;
+    console.log(postdata);
+
+    const response = await axios.post(postdata, formData);
 
     return NextResponse.json({ message: 'Successfully Registered', data: response.data });
 
