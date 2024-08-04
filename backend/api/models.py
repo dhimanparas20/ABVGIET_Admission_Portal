@@ -125,3 +125,11 @@ class HostelApplication(models.Model):
 
     def __str__(self):
         return self.applicant_full_name
+
+class Form(models.Model):
+    name = models.CharField(max_length=20)
+    phone_number = PhoneNumberField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name    

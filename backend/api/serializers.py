@@ -1,6 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from .models import Student,HostelApplication
+from .models import Student,HostelApplication,Form
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,4 +10,9 @@ class StudentSerializer(serializers.ModelSerializer):
 class HostelApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = HostelApplication
-        fields = '__all__'        
+        fields = '__all__'
+
+class FormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Form
+        fields = ['id', 'name', 'phone_number', 'message']                
