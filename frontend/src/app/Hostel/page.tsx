@@ -165,13 +165,13 @@ export default function Component() {
 
 
                 <div>
-                  <Label htmlFor="fathers_name">Father's Name</Label>
+                  <Label htmlFor="fathers_name">Father Name</Label>
                   <Input id="fathers_name" placeholder="Father's Name" required onChange={handleChange} />
                 </div>
 
 
                 <div>
-                  <Label htmlFor="mothers_name">Mother's Name</Label>
+                  <Label htmlFor="mothers_name">Mother Name</Label>
                   <Input id="mothers_name" placeholder="Mother's Name" required onChange={handleChange} />
                 </div>
                 
@@ -303,14 +303,14 @@ export default function Component() {
 
                 {/* applicant_father_phone_number */}
                 <div>
-                  <Label htmlFor="applicant_father_phone_number">Father's Mobile Number</Label>
+                  <Label htmlFor="applicant_father_phone_number">Father Mobile Number</Label>
                   <Input id="applicant_father_phone_number" type="tel" placeholder="Enter Here" required onChange={handleChange} />
                 </div>
 
 
                 {/* applicant_mother_phone_number */}
                 <div>
-                  <Label htmlFor="applicant_mother_phone_number">Mother's Mobile Number</Label>
+                  <Label htmlFor="applicant_mother_phone_number">Mother Mobile Number</Label>
                   <Input id="applicant_mother_phone_number" type="tel" placeholder="Enter Here" required onChange={handleChange} />
                 </div>
 

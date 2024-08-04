@@ -387,17 +387,17 @@ export default function Component() {
 
                 {/* Mobile Numbers Fields */}
                 <div>
-                  <Label htmlFor="father_phone_number">Father's Mobile Number</Label>
+                  <Label htmlFor="father_phone_number">Father Mobile Number</Label>
                   <Input id="father_phone_number" type="tel" placeholder="Enter father's mobile number" required onChange={handleChange} />
                 </div>
 
                 <div>
-                  <Label htmlFor="mother_phone_number">Mother's Mobile Number</Label>
+                  <Label htmlFor="mother_phone_number">Mother Mobile Number</Label>
                   <Input id="mother_phone_number" type="tel" placeholder="Enter mother's mobile number" required onChange={handleChange} />
                 </div>
 
                 <div>
-                  <Label htmlFor="candidate_phone_number">Candidate's Mobile Number</Label>
+                  <Label htmlFor="candidate_phone_number">Candidate Mobile Number</Label>
                   <Input id="candidate_phone_number" type="tel" placeholder="Enter candidate's mobile number" required onChange={handleChange} />
                 </div>
 
