@@ -56,9 +56,9 @@ SUBCATEGORY_CHOICES = [
 ]
 
 DEPARTMENT_CHOICES = [
-    ('btech', 'B.Tech'),
-    ('iti', 'ITI'),
-    ('polytech', 'Polytechnic'),
+    ('BTECH', 'B.Tech'),
+    ('ITI', 'ITI'),
+    ('POLYTECH', 'Polytechnic'),
 ]
 
 class Student(models.Model):
@@ -108,7 +108,7 @@ class HostelApplication(models.Model):
     fathers_name = models.CharField(max_length=50)
     mothers_name = models.CharField(max_length=50)
     dob = models.DateField()
-    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES,default="Female")
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     department = models.CharField(max_length=10, choices=DEPARTMENT_CHOICES)
     branch = models.CharField(max_length=5, choices=BRANCH_CHOICES)

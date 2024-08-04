@@ -15,7 +15,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ['branch', 'category', 'department', 'semester_year']     
 
 @admin.register(Form)
-class StudentAdmin(admin.ModelAdmin):
+class FormAdmin(admin.ModelAdmin):
     search_fields = ['name', 'phone_number']
     list_display = ['name', 'phone_number']
     list_filter = ['name', 'phone_number']    
