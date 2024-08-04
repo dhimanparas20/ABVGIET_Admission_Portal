@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast"
+
 
 
 
@@ -45,7 +46,18 @@ export default function Component() {
 
 
   const { toast } = useToast();
+  const [BASEURL, setBASEURL] = useState("");
 
+  const Getenv = async()=>{
+    const response = await axios.post("/api/Getenv");
+    console.log(response.data.env);
+    await setBASEURL(response.data.env);
+  }
+
+
+  useEffect(() => {
+    Getenv();
+  }, []);
 
 
   const [formData, setFormData] = useState<FormData>({
@@ -81,10 +93,32 @@ export default function Component() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(`${BASEURL}api/hostel/`, formData);
+  //     console.log(response);
+  //     toast({
+  //       title: "Successfully Registered",
+  //       description: "You have successfully registered for hostel",});
+
+  //   } catch (error)
+
+  //   {
+  //     const output = (error as any).response?.data;   
+  //     toast({
+  //       title: `${output[Object.keys(output)[0]][0]}`, 
+  //       description: `${console.log(Object.keys(output)[0])}`,
+  //     })
+  //   }
+  // };
+
+
+
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://192.168.1.47:5000/api/hostel/", formData);
+      const response = await axios.post("/api/Hostel", formData);
       console.log(response);
       toast({
         title: "Successfully Registered",
@@ -100,6 +134,8 @@ export default function Component() {
       })
     }
   };
+
+
 
 
 
