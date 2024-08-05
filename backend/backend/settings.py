@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'channels',
     'rest_framework.authtoken',
+    'import_export',
 ]
 
 MIDDLEWARE = [
