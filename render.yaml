@@ -1,0 +1,39 @@
+services:
+  - name: redis
+    type: redis
+    plan: free
+    envVars:
+      - key: ALLOW_EMPTY_PASSWORD
+        value: "yes"
+    ports:
+      - port: 6379
+        protocol: TCP
+
+  - name: backend
+    type: web
+    env: docker
+    docker:
+      buildContext: ./backend
+    envVars:
+      - key: TERM
+        value: xterm
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
+    instances: 1
+    plan: free
+    ports:
+      - port: 5000
+        protocol: TCP
+    startCommand: ["gunicorn", "--bind", "0.0.0.0:5000", "backend.wsgi:application"]
+
+  - name: frontend
+    type: web
+    env: docker
+    docker:
+      buildContext: ./frontend
+    instances: 1
+    plan: free
+    ports:
+      - port: 3000
+        protocol: TCP
+    startCommand: "npm start"
