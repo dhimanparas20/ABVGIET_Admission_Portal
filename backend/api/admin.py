@@ -8,6 +8,7 @@ from django.contrib import admin
 class StudentAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     search_fields = ['first_name', 'last_name', 'email', 'aadhaar_no', 'category', 'subcategory', 'gender', 'branch', 'admission_based_on', 'round']
     list_display = ['first_name', 'last_name', 'email', 'aadhaar_no', 'category', 'subcategory', 'gender', 'branch', 'admission_based_on', 'round', 'date_applied']
+    list_filter = ['branch', 'category', 'round', 'semester_year','subcategory','gender'] 
 
 @admin.register(HostelApplication)
 class  HOstelAppAdmin(ImportExportModelAdmin,admin.ModelAdmin):
