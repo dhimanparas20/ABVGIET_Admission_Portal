@@ -1,14 +1,4 @@
 services:
-  - name: redis
-    type: redis
-    plan: free
-    envVars:
-      - key: ALLOW_EMPTY_PASSWORD
-        value: "yes"
-    ports:
-      - port: 6379
-        protocol: TCP
-
   - name: backend
     type: web
     env: docker
