@@ -2,7 +2,7 @@
 FROM docker:latest
 
 # Install Docker Compose
-RUN apk add --no-cache py3-pip && pip3 install docker-compose
+RUN apk add --no-cache py3-pip 
 
 # Set the working directory
 WORKDIR /app
@@ -11,8 +11,8 @@ WORKDIR /app
 COPY docker-compose.yml /app/
 
 # Copy the backend and frontend directories
-COPY backend /app/backend/
-COPY frontend /app/frontend/
+# COPY backend /app/backend/
+# COPY frontend /app/frontend/
 
 # Make Docker Compose the entry point
 ENTRYPOINT ["docker-compose"]
